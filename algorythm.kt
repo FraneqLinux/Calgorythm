@@ -1,5 +1,2 @@
 package com.example.calgorythm
-class algorythm(name : String,desc : String, ttl : Double, categ : String)
-{
-
-}
+data class algorythm(var name : String, var desc : String, var ttl : Double, var categ : String)

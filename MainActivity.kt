@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -37,13 +40,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun maintext(){
-    Column(modifier=Modifier
-        .fillMaxWidth()
-        .padding(10.dp)
-    )
-    {
-        Text("Calgorythm")
-    }
     var djikstra = algorythm(
         "Djikstra's Algorythm",
         "Algorythm used for finding the shortest path",
@@ -64,7 +60,49 @@ fun maintext(){
         "Algorythm used for breadth-first search",
         1.0,
         "Graphs")
+    var astar = algorythm(
+        "A-Star",
+        "Algorythm used for finding the shortest path through heura",
+        4.0,
+        "Graphs"
+    )
+    Column(modifier= Modifier
+        .fillMaxWidth()
+        .padding(10.dp)
+    )
+    {
+        Row{
+            Text("Calgorythm")
+        }
+        addalgo(djikstra)
+        addalgo(kruksall)
+        addalgo(dfs)
+        addalgo(bfs)
+        addalgo(astar)
+    }
+
 }
+@Composable
+fun addalgo(alg : algorythm)
+{
+    Column {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)){
+            Column {
+                Text("${alg.name}")
+                Text("${alg.desc}")
+                Text("Time to learn : ${alg.ttl} hours")
+                Text("Category : ${alg.categ}")
+            }
+        }
+        Button(onClick = { /*TODO*/ }) {
+            Text(text = "Learn")
+        }
+    }
+}
+
+
 
 @Preview(showBackground = true)
 @Composable
